@@ -1,0 +1,35 @@
+---
+
+networks:
+  default:
+      name: example.com
+
+services:
+
+  lab-terminal:
+    image: docker.io/tonykay/service-rhel-8-terminal-base
+    container_name: lab-terminal
+    hostname: lab-terminal
+    ports:
+      - "2223:22"           # Direct ssh access localhost 2222 devops/vagrant key
+      - "8000:8888"        # Browser based terminal session
+
+  lab-httpd:
+    image: registry.redhat.io/rhel8/httpd-24
+    container_name: lab-httpd
+    hostname: lab-httpd
+    volumes:
+      - "./lab-html-content:/var/www/html"   # :z,ro"
+    ports:
+      - "1080:8080"
+
+  lab-codeserver: 
+    image: tonykay/rhel9-vsc-code-server:v0.0.3
+    container_name: codeserver
+    hostname: codeserver
+    environment:
+      PASSWORD: password
+    ports:
+      - "8088:8080"
+
+...

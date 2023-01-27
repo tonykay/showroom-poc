@@ -1,0 +1,50 @@
+== Dojo Ansible Flask App
+
+A simple Proof of Concept lab to show how a lab can be delivered as a `docker-compose` file and `html`.
+The lab can be run entirely locally (or remotely) and accessed via a link:http://localhost[web browser]
+Alternatively the lab can be accessed via:
+
+* ssh e.g. `ssh -F ssh.cfg control` will `ssh` from your laptop into the `control` container
+* Via `ansible` from lab directory
+** `ansible.cfg` configures both *inventory* and *ssh.cfg*
+** A simple example `ping` playbook 
+** Simple `ansible` ad-hoc commands e.g.
+
+=== Running
+
+This is a very simple lab and configuration.
+
+[source,bash]
+----
+docker compose up -d 
+----
+
+To shutdown `docker compose down`
+
+=== Testing and Exploring
+
+
+If working in the lab directory your `ansible.cfg` will allow you to successfully: 
+
+[source,sh]
+----
+ansible all -m ping 
+----
+
+or with `ansible-playbook`
+
+[source,sh]
+----
+ansible-playbook example-ping-playbook.yml
+----
+
+. ssh connectivity exists to both the `terminal` and `control` _"nodes"_
+
+[source,sh]
+----
+ssh -F ssh.cfg control
+----
+
+
+
+
