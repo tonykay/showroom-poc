@@ -1,50 +1,32 @@
-== Dojo Ansible Flask App
+== Showroom Proof of Concept
 
 A simple Proof of Concept lab to show how a lab can be delivered as a `docker-compose` file and `html`.
 The lab can be run entirely locally (or remotely) and accessed via a link:http://localhost[web browser]
-Alternatively the lab can be accessed via:
 
-* ssh e.g. `ssh -F ssh.cfg control` will `ssh` from your laptop into the `control` container
-* Via `ansible` from lab directory
-** `ansible.cfg` configures both *inventory* and *ssh.cfg*
-** A simple example `ping` playbook 
-** Simple `ansible` ad-hoc commands e.g.
+=== Pre-requisites
+
+A container runtime, e.g. `podman` or `docker` with support for compose.
+Production will support:
+
+* `podman`
+** via compose
+** via kube-gen
+* `docker`
+* Kubernetes
+* OpenShift
+
+If you have `podman` without compose support then:
+[source,bash]
+----
+python3 -m pip install --upgrade podman-compose
+----
 
 === Running
 
-This is a very simple lab and configuration.
+This is a very simple lab and configuration at this stage
 
-[source,bash]
-----
-docker compose up -d 
-----
+Starting: `podman-compose up -d` or `docker compose up -d`
 
-To shutdown `docker compose down`
+Browse to http://localhost:80[http://localhost:80]
 
-=== Testing and Exploring
-
-
-If working in the lab directory your `ansible.cfg` will allow you to successfully: 
-
-[source,sh]
-----
-ansible all -m ping 
-----
-
-or with `ansible-playbook`
-
-[source,sh]
-----
-ansible-playbook example-ping-playbook.yml
-----
-
-. ssh connectivity exists to both the `terminal` and `control` _"nodes"_
-
-[source,sh]
-----
-ssh -F ssh.cfg control
-----
-
-
-
-
+Stopping: podman-compose down` or `docker compose down`
