@@ -2,16 +2,10 @@
 
 networks:
   default:
-      name: example.com
+    name: example.com
 
 services:
 
-  lab-terminal:
-    image: docker.io/tonykay/service-rhel-8-terminal-base
-    container_name: lab-terminal
-    hostname: lab-terminal
-    ports:
-      - "8000:8888"        # Browser based terminal session
 
   lab-httpd:
     image: registry.redhat.io/rhel8/httpd-24
@@ -20,6 +14,13 @@ services:
     volumes:
       - "./lab-html-content:/var/www/html"   # :z,ro"
     ports:
-      - "80:8080"
+      - "8000:8080"
+
+  lab-terminal:
+    image: docker.io/tonykay/service-rhel-8-terminal-base
+    container_name: lab-terminal
+    hostname: lab-terminal
+    ports:
+      - "8001:8888"        # Browser based terminal session
 
 ...
