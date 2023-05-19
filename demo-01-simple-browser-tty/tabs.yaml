@@ -1,0 +1,7 @@
+showroom_tabs:
+  - name: OCP
+    url: http://foo.com
+  - name: AAP2
+    url: http://foobar.com
+  - name: VNC
+    url: http://vncfoo.com
