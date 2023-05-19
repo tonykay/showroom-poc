@@ -26,9 +26,11 @@ services:
     image: docker.io/codercom/code-server
     container_name: code-server
     hostname: code-server
-    volumes:
+    environment:
+      - "PASSWORD=changeme"
+    # volumes:
       # - ".:/home/coder"
-      - "./config:/home/coder/.config"
+      # - "./config:/home/coder/.config"
     ports:
       - "8088:8080"
   # -u "$(id -u):$(id -g)" \
