@@ -13,37 +13,32 @@
 			<div class="split right">
 				<div class="tab">
 					<button class="tablinks" onclick="openTerminal(event, 'terminal_tab_01')" id="defaultOpen" tabindex="0">Terminal</button>
-					<button class="tablinks" onclick="openTerminal(event, 'code_tab')">VS Code</button>
-					<button class="tablinks" onclick="openTerminal(event, 'docs_tab')">Ansible Docs</button>
-					<button class="tablinks" onclick="openTerminal(event, 'cats_tab')">Cats</button>
 					<!-- button class="tablinks" onclick="openTerminal(event, 'terminal_tab_02')">Terminal 2</button -->
+					<button class="tablinks" onclick="openTerminal(event, 'docs_tab')">VS Code</button>
+					<button class="tablinks" onclick="openTerminal(event, 'ocp_tab')">OpenShift</button>
 				</div>
 					<div id="terminal_tab_01" class="tabcontent">
-						<iframe id="terminal"  src="http://localhost:8001" width="100%" style="border:none;"></iframe>
+
+						<div class="split top">
+							<iframe id="terminal"  src="http://localhost:8000" width="100%" style="border:none;"></iframe>
+						</div>
+						<div class="split bottom">
+							<iframe id="terminal"  src="http://localhost:8000" width="100%" style="border:none;"></iframe>
+						</div>
+						<!-- iframe id="terminal_1" src="http://localhost:8000" width="100%" style="border:none;"></iframe -->
 					</div>
-					<div id="code_tab" class="tabcontent">
-                        <!-- <iframe id="code" src="http://localhost:8088" height="500px" width="500px"></iframe> -->
-                        <iframe id="code" src="http://localhost:8088" height="100%" width="100%"></iframe>
-						<!-- <iframe id="code"  src="https://127.0.0.1:8088/" width="100%" style="border:none;" target='_top'></iframe> -->
-                        <!-- <iframe src="http://localhost:8088"></iframe> -->
-                        <!-- <iframe id="code" src="http://localhost:8088" height="100%" width="100%"></iframe> -->
-						<!-- <iframe id="code" src="./vscode-404.html" width="100%" style="border:none;"></iframe> -->
+					<div id="terminal_tab_02" class="tabcontent">
+						<iframe id="terminal_2" src="http://localhost:8000" width="100%" style="border:none;"></iframe>
 					</div>
 					<div id="docs_tab" class="tabcontent">
-						<iframe id="docs" src="https://docs.ansible.com/" width="100%" style="border:none;"></iframe>
+						<iframe id="docs" src="http://localhost:8088" width="100%" style="border:none;"></iframe>
 					</div>
-					<div id="cats_tab" class="tabcontent">
-						<iframe id="cats" src="https://cats.com/" width="100%" style="border:none;"></iframe>
+					<div id="docs_tab" class="tabcontent">
+						<iframe id="docs" src="http://localhost:8088" width="100%" style="border:none;"></iframe>
 					</div>
-						<!-- <div class="split top"> -->
-						<!-- </div> -->
-						<!-- <div class="split bottom"> -->
-							<!-- <iframe id="terminal"  src="http://localhost:8000" width="100%" style="border:none;"></iframe> -->
-						<!-- </div> -->
-						<!-- iframe id="terminal_1" src="http://localhost:8000" width="100%" style="border:none;"></iframe -->
-					<!-- <div id="terminal_tab_02" class="tabcontent"> -->
-					<!-- 	<iframe id="terminal_2" src="http://localhost:8000" width="100%" style="border:none;"></iframe> -->
-					<!-- </div> -->
+					<div id="ocp_tab" class="tabcontent">
+						<iframe id="docs" src="https://codeserver-codeserver.apps.cluster-4ffv8.sandbox1728.opentlc.com/" width="100%" style="border:none;"></iframe>
+					</div>
 				</div>
 			</div>
 		</div>

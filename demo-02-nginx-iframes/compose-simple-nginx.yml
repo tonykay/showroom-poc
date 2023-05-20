@@ -1,0 +1,30 @@
+---
+version: "3"
+
+services:
+
+  client:
+    image: nginx
+    ports:
+      - 8000:80
+    volumes:
+      - ./www:/usr/share/nginx/html
+  terminal:
+    image: docker.io/tonykay/service-rhel-8-terminal-base
+    container_name: terminal
+    hostname: terminal
+    ports:
+      - "8001:8888"        # Browser based terminal session
+
+  code-server:
+    image: docker.io/codercom/code-server
+    container_name: code-server
+    hostname: code-server
+    environment:
+      - "PASSWORD=changeme"
+    # volumes:
+      # - ".:/home/coder"
+      # - "./config:/home/coder/.config"
+    ports:
+      - "8088:8080"
+  # -u "$(id -u):$(id -g)" \

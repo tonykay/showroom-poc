@@ -1,0 +1,39 @@
+---
+
+networks:
+  default:
+    name: example.com
+
+services:
+
+  web:
+    image: nginx
+    # image: registry.redhat.io/rhel9/nginx-122
+    container_name: web
+    hostname: web
+    volumes:
+      - ./www:/usr/share/nginx/html
+      # - ./www:/opt/app-root/src:Z
+    ports:
+      - "8000:8080"
+
+ terminal:
+    image: docker.io/tonykay/service-rhel-8-terminal-base
+    container_name: terminal
+    hostname: terminal
+    ports:
+      - "8001:8888"        # Browser based terminal session
+
+  code-server:
+    image: docker.io/codercom/code-server
+    container_name: code-server
+    hostname: code-server
+    environment:
+      - "PASSWORD=changeme"
+    # volumes:
+      # - ".:/home/coder"
+      # - "./config:/home/coder/.config"
+    ports:
+      - "8088:8080"
+  # -u "$(id -u):$(id -g)" \
+  # -e "DOCKER_USER=$USER" \     

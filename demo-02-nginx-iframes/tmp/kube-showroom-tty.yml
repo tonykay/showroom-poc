@@ -1,0 +1,81 @@
+# Save the output of this file and use kubectl create -f to import
+# it into Kubernetes.
+#
+# Created with podman-4.3.1
+
+# NOTE: If you generated this yaml from an unprivileged and rootless podman container on an SELinux
+# enabled system, check the podman generate kube man page for steps to follow to ensure that your pod/container
+# has the right permissions to access the volumes added.
+---
+apiVersion: v1
+kind: Pod
+metadata:
+  annotations:
+    io.kubernetes.cri-o.TTY/lab-httpd: "false"
+    io.kubernetes.cri-o.TTY/lab-terminal: "false"
+    io.podman.annotations.autoremove/lab-httpd: "FALSE"
+    io.podman.annotations.autoremove/lab-terminal: "FALSE"
+    io.podman.annotations.init/lab-httpd: "FALSE"
+    io.podman.annotations.init/lab-terminal: "FALSE"
+    io.podman.annotations.privileged/lab-httpd: "FALSE"
+    io.podman.annotations.privileged/lab-terminal: "FALSE"
+    io.podman.annotations.publish-all/lab-httpd: "FALSE"
+    io.podman.annotations.publish-all/lab-terminal: "FALSE"
+  creationTimestamp: "2023-02-05T06:59:02Z"
+  labels:
+    app: lab-terminal-pod
+  name: lab-terminal-pod
+spec:
+  automountServiceAccountToken: false
+  containers:
+  - args:
+    - butterfly.server.py
+    - --port=8888
+    - --host=0.0.0.0
+    - --unsecure
+    - --i-hereby-declare-i-dont-want-any-security-whatsoever
+    env:
+    - name: NO_PROXY
+      value: 172.30.1.1
+    - name: HOSTNAME
+      value: lab-terminal
+    image: docker.io/tonykay/service-rhel-8-terminal-base:latest
+    name: lab-terminal
+    ports:
+    - containerPort: 8888
+      hostPort: 8000
+    securityContext:
+      capabilities:
+        drop:
+        - CAP_MKNOD
+        - CAP_NET_RAW
+        - CAP_AUDIT_WRITE
+  - args:
+    - /usr/bin/run-httpd
+    env:
+    - name: NO_PROXY
+      value: 172.30.1.1
+    - name: HOSTNAME
+      value: lab-httpd
+    image: registry.redhat.io/rhel8/httpd-24:latest
+    name: lab-httpd
+    ports:
+    - containerPort: 8080
+      hostPort: 80
+    securityContext:
+      capabilities:
+        drop:
+        - CAP_MKNOD
+        - CAP_NET_RAW
+        - CAP_AUDIT_WRITE
+    volumeMounts:
+    - mountPath: /var/www/html
+      name: Users-ankay-Dropbox-repos-showroom-demo-monorepo-demo-01-simple-browser-tty-lab-html-content-host-0
+  enableServiceLinks: false
+  hostname: lab-terminal
+  volumes:
+  - hostPath:
+      path: "./lab-html-content"
+      type: Directory
+    name: Users-ankay-Dropbox-repos-showroom-demo-monorepo-demo-01-simple-browser-tty-lab-html-content-host-0
+
