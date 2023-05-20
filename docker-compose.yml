@@ -43,6 +43,9 @@ services:
       - PASSWORD=changeme
     ports:
       - "8088:8080"
+        # old style - env var better e.g. PASSWORD
+    # volumes:
+    #   - "./config/code-server:/home/coder/.config/code-server"
 
         # RHDP codeserver
         #
@@ -51,5 +54,4 @@ services:
     
         # volumes:
         # - ".:/home/coder"
-        # - "./config:/home/coder/.config"
         # -u "$(id -u):$(id -g)" \

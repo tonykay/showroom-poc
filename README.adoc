@@ -1,6 +1,9 @@
 == Showroom Proof of Concept
 
-A simple Proof of Concept lab to show how a lab can be delivered as a `docker-compose` file and `html`.
+A simple Proof of Concept to show and play with showroom, a homeroom or bookbag replacement with a bias towards Antora-generated labs but able to consume any HTML based content.
+
+
+lab to show how a lab can be delivered as a `docker-compose` file and `html`.
 The lab can be run entirely locally (or remotely) and accessed via a link:http://localhost[web browser]
 
 === Pre-requisites
@@ -34,17 +37,11 @@ Stopping: podman-compose down` or `docker compose down`
 
 [source,bash]
 ----
-[1;36m.[0m
-├── README.adoc
-├── docker-compose.yml
-├── [1;36mtests[0m
-└── [1;36mwww[0m
-
-2 directories, 2 files
-----[1;36m.[0m
-├── README.adoc
-├── docker-compose.yml
-├── [1;36mtests[0m
-└── [1;36mwww[0m
-
-2 directories, 2 files
+.
+├── README.adoc               # This file
+├── docker-compose.yml        # Simple sample lab orchestration docker/podman compose file
+├── pocs-and-tests 
+└── www                       # Web content
+    ├── index.html            # Default landing page, or "view", for showroom
+    └── ...
+----
