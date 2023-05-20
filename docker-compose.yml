@@ -15,7 +15,7 @@ services:
     ports:
       - "8000:8080"
     volumes:
-      - ./www:/opt/app-root/src:Z rhel8/nginx-122
+      - ./www:/opt/app-root/src #:Z
 
     # image: nginx
       # - "8000:80"
