@@ -12,15 +12,25 @@
 			</div>
 			<div class="split right">
 				<div class="tab">
-					<button class="tablinks" onclick="openTerminal(event, 'terminal_tab_01')" id="defaultOpen" tabindex="0">Terminal</button>
+					<button class="tablinks" onclick="openTerminal(event, 'terminal_tab')" id="defaultOpen" tabindex="0">Terminal</button>
 					<button class="tablinks" onclick="openTerminal(event, 'codeserver_tab')">VS Code</button>
 					<button class="tablinks" onclick="openTerminal(event, 'docs_tab')">Ansible Docs</button>
 					<button class="tablinks" onclick="openTerminal(event, 'cats_tab')">Cats</button>
 					<!-- button class="tablinks" onclick="openTerminal(event, 'terminal_tab_02')">Terminal 2</button -->
 				</div>
-					<div id="terminal_tab_01" class="tabcontent">
-						<iframe id="terminal"  src="http://localhost:8001" width="100%" style="border:none;"></iframe>
+					<!-- <div id="terminal_tab" class="tabcontent"> -->
+					<!-- 	<iframe id="terminal"  src="http://localhost:8001" width="100%" style="border:none;"></iframe> -->
+					<!-- </div> -->
+					<div id="terminal_tab" class="tabcontent">
+						<div class="split top">
+						    <iframe id="terminal_01"  src="http://localhost:8001" width="100%" style="border:none;"></iframe>
+						</div>
+						<div class="split bottom">
+							<iframe id="terminal_02"  src="http://localhost:8002" width="100%" style="border:none;"></iframe>
+						</div>
 					</div>
+					<!-- <div id="terminal_tab_02" class="tabcontent"> -->
+					<!-- 	<iframe id="terminal_2" src="http://localhost:8000" width="100%" style="border:none;"></iframe> -->
 					<div id="codeserver_tab" class="tabcontent">
                         <iframe id="codeserver" src="http://127.0.0.1:8088" height="100%" width="100%"></iframe>
                         <!-- <iframe id="codeserver" src="http://127.0.0.1:8088" height="500px" width="500px"></iframe> -->
