@@ -30,3 +30,21 @@ Starting: `podman-compose up -d` or `docker compose up -d`
 Browse to http://localhost:80[http://localhost:80]
 
 Stopping: podman-compose down` or `docker compose down`
+
+
+[source,bash]
+----
+[1;36m.[0m
+├── README.adoc
+├── docker-compose.yml
+├── [1;36mtests[0m
+└── [1;36mwww[0m
+
+2 directories, 2 files
+----[1;36m.[0m
+├── README.adoc
+├── docker-compose.yml
+├── [1;36mtests[0m
+└── [1;36mwww[0m
+
+2 directories, 2 files

@@ -1,6 +1,10 @@
 ---
 version: "3"
 
+networks:
+  default:
+    name: showroom.example.com
+
 services:
 
   web:
@@ -39,9 +43,13 @@ services:
       - PASSWORD=changeme
     ports:
       - "8088:8080"
-    # image: quay.io/gpte-devops-automation/codeserver #docker.io/codercom/code-server
-    # platform: linux/amd64
-    # volumes:
-      # - ".:/home/coder"
-      # - "./config:/home/coder/.config"
-    # -u "$(id -u):$(id -g)" \
+
+        # RHDP codeserver
+        #
+        # image: quay.io/gpte-devops-automation/codeserver #docker.io/codercom/code-server
+        # platform: linux/amd64
+    
+        # volumes:
+        # - ".:/home/coder"
+        # - "./config:/home/coder/.config"
+        # -u "$(id -u):$(id -g)" \
