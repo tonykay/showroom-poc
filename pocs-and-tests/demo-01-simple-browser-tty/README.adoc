@@ -1,0 +1,32 @@
+== Showroom Proof of Concept
+
+A simple Proof of Concept lab to show how a lab can be delivered as a `docker-compose` file and `html`.
+The lab can be run entirely locally (or remotely) and accessed via a link:http://localhost[web browser]
+
+=== Pre-requisites
+
+A container runtime, e.g. `podman` or `docker` with support for compose.
+Production will support:
+
+* `podman`
+** via compose
+** via kube-gen
+* `docker`
+* Kubernetes
+* OpenShift
+
+If you have `podman` without compose support then:
+[source,bash]
+----
+python3 -m pip install --upgrade podman-compose
+----
+
+=== Running
+
+This is a very simple lab and configuration at this stage
+
+Starting: `podman-compose up -d` or `docker compose up -d`
+
+Browse to http://localhost:80[http://localhost:80]
+
+Stopping: podman-compose down` or `docker compose down`
