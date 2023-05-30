@@ -22,19 +22,19 @@ services:
       # - "8000:80"
       # - ./www:/usr/share/nginx/html
 
-  terminal-01:
-    image: docker.io/tonykay/service-rhel-8-terminal-base
-    container_name: terminal-01
-    hostname: terminal-01
-    ports:
-      - "8001:8888"
-
-  terminal-02:
-    image: docker.io/tonykay/service-rhel-8-terminal-base
-    container_name: terminal-02
-    hostname: terminal-02
-    ports:
-      - "8002:8888"
+  # terminal-01:
+  #   image: docker.io/tonykay/service-rhel-8-terminal-base
+  #   container_name: terminal-01
+  #   hostname: terminal-01
+  #   ports:
+  #     - "8001:8888"
+  #
+  # terminal-02:
+  #   image: docker.io/tonykay/service-rhel-8-terminal-base
+  #   container_name: terminal-02
+  #   hostname: terminal-02
+  #   ports:
+  #     - "8002:8888"
 
   codeserver:
     image: docker.io/codercom/code-server
