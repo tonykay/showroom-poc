@@ -1,0 +1,48 @@
+<html>
+<head>
+    <title>Simple check me button demo for Showroom via Ansible EDA</title>
+     <!-- Probably a bit hacky, no JS guru -->
+     <!-- Read examples from: -->
+     <!--    https://www.taniarascia.com/how-to-connect-to-an-api-with-javascript/ -->
+     <!--    https://www.geeksforgeeks.org/get-and-post-method-using-fetch-api/ -->
+     <!--    https://stackoverflow.com/questions/29775797/fetch-post-json-data -->
+     <!--    https://stackoverflow.com/questions/16036041/can-a-html-button-perform-a-post-request -->
+
+</head>
+
+<body>
+
+    <h1>Simple button demo for Showroom via Ansible EDA</h1>
+    <p>Click the button below to check the progress via an Ansible EDA job.</p>
+
+        <button id="progress-button">Check Progress</button>
+
+        <!-- <input type="button" id='progress-button' onclick="GetData()" value="Get Data">    -->
+
+
+    <script>
+        const button = document.getElementById('progress-button');
+
+        button.addEventListener('click', async _ => {
+          try {     
+            const response = await fetch('http://localhost:8000/endpoint', {
+              method: 'POST',
+              headers: {
+                "Content-type": "application/json; charset=UTF-8"
+              },
+              mode: 'no-cors',
+              body: JSON.stringify({
+                action: "Check Me",
+                module: 1
+             })
+            });
+            console.log('Completed!', response);
+          } catch(err) {
+            console.error(`Error: ${err}`);
+          }
+        });
+
+    </script>
+
+</body>
+</html>

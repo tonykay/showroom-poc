@@ -1,0 +1,11 @@
+---
+- name: Check script for Module 1
+  hosts: all
+  gather_facts: false
+  become: false
+
+  tasks:
+
+    - name: Check script for Module 1
+      ansible.builtin.debug:
+        msg: Here we can Check Progress for Module 1, perhaps via script/command or Ansible

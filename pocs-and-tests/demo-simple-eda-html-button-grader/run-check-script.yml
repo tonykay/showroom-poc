@@ -1,0 +1,11 @@
+---
+- name: Check script to run demo checkpoint
+  hosts: all
+  gather_facts: false
+  become: false
+
+  tasks:
+
+    - name: My grader script hook - debug for now
+      ansible.builtin.debug:
+        msg: Hello I would like to check your progress

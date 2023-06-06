@@ -1,0 +1,35 @@
+== Overview
+
+Simple standalone PoC showing:
+
+* Using Ansible Rulebook to create a webhook handler.
+* Using an HTML button to POST to ansible-rulebook handler
+
+== Setup
+
+You will need to install the following:
+
+* Ansible Rulebook (see requirements.yml)
+** `ansible-galaxy collection install -r requirements.yml`
+** `pip install ansible-rulebook`
+* Ideally use a virtualenv, see ./requirements-python-3.10.10.txt
+
+=== Running a simple test (multiple terminal windows useful for this, and assumed)
+
+. In terminal window/pane 1 run the rulebook
+.. `ansible-rulebook -r event-handler-rulebook.yml -i inventory --verbose`
+. In terminal window/pane 2 run the curl command to verify the rulebook is running and responding correctly
+.. `curl -H 'Content-Type: application/json' -d '{"action": "Check Me", "module" : 1 }' http://127.0.0.1:8000/endpoint`
++
+NOTE: You can change the curl payload to set `"module" : 2` to test the second module.
+
+=== Test via HTML button
+
+. In terminal window/pane 1 run the rulebook (as above)
+. In terminal window/pane 2 run a webserver e.g.
+`python3 -m http.server 80`
+. In a browser open http://localhost:80/index.html
+.. Click the button to POST to the rulebook
+
+
+
