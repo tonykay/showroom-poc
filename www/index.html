@@ -15,6 +15,7 @@
 					<button class="tablinks" onclick="openTerminal(event, 'terminal_tab')" id="defaultOpen" tabindex="0">Terminal</button>
 					<button class="tablinks" onclick="openTerminal(event, 'codeserver_tab')">VS Code</button>
 					<button class="tablinks" onclick="openTerminal(event, 'docs_tab')">Ansible Docs</button>
+					<button class="tablinks" onclick="openTerminal(event, 'jupyter_tab')">JupyterLabs</button>
 					<button class="tablinks" onclick="openTerminal(event, 'cats_tab')">Cats</button>
 					<!-- <button class="tablinks" onclick="openTerminal(event, 'gitops_tab')">GitOps</button> -->
 					<!-- button class="tablinks" onclick="openTerminal(event, 'terminal_tab_02')">Terminal 2</button -->
@@ -45,6 +46,9 @@
 					</div>
 					<div id="docs_tab" class="tabcontent">
 						<iframe id="docs" src="https://docs.ansible.com/" width="100%" style="border:none;"></iframe>
+					</div>
+					<div id="jupyter_tab" class="tabcontent">
+						<iframe id="jupyter" src="https://localhost:127.0.0.1:8004" width="100%" style="border:none;"></iframe>
 					</div>
 					<div id="cats_tab" class="tabcontent">
 						<iframe id="cats" src="https://cats.com/" width="100%" style="border:none;"></iframe>
