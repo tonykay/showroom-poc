@@ -11,16 +11,32 @@
 
   rules:
 
+    - name: Setup push events
+      condition: event.payload.action is defined
+      action:
+        post_event:
+          event:
+            action: "{{ event.payload.action }}"
+            module: "{{ event.payload.module }}"
+
     - name: Run Module 1 Grader
-      condition: event.payload.action == "Check Me"
-        and event.payload.module == 1
+      condition: event.action == "check_progress"
+        and event.module == 1
       action:
         run_playbook:
           name: check-module-1.yml
+          post_events: true
 
     - name: Run Module 2 Grader
-      condition: event.payload.action == "Check Me"
-        and event.payload.module == 2
+      condition: event.action == "check_progress"
+        and event.module == 2
       action:
         run_playbook:
           name: check-module-2.yml
+          post_events: true
+
+    - name: Run Module 3 Grader
+      condition: event.action == "check_progress"
+        and event.module == 3
+      action:
+        debug:

@@ -9,3 +9,10 @@
     - name: Check script for Module 1
       ansible.builtin.debug:
         msg: Here we can Check Progress for Module 1, perhaps via script/command or Ansible
+
+          # TODO: Next code snippet re {{ event }} should work but does not - debug, Prakhar seen similar
+          # issues
+
+    # - name: Output the event
+    #   ansible.builtin.debug:
+    #     msg: "{{ event }}"
