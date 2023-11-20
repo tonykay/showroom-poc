@@ -7,15 +7,29 @@ networks:
 
 services:
 
+  # web:
+  #   image: registry.redhat.io/rhel9/nginx-122
+  #   container_name: web
+  #   hostname: web
+  #   command: nginx -g "daemon off;"
+  #   ports:
+  #     - "8000:8080"
+  #   volumes:
+  #     - ./www:/opt/app-root/src:Z 
+
   web:
-    image: registry.redhat.io/rhel9/nginx-122
+    image: docker.io/httpd:2.4
     container_name: web
     hostname: web
-    command: nginx -g "daemon off;"
     ports:
-      - "8000:8080"
+      - "8000:80"
+      # - "8000:8080"
     volumes:
-      - ./www:/opt/app-root/src:Z 
+      - "./www:/usr/local/apache2/htdocs/:Z"
+      # - "/opt/showroom/content/gh-pages:/usr/local/apache2/htdocs/:Z"
+      - ./www:/opt/app-root/src # :Z
+    #   - ./nginx/nginx.conf:/etc/nginx/nginx.conf
+    #   - ./www:/usr/share/nginx/html
 
   codeserver:
     image: docker.io/codercom/code-server
@@ -25,3 +39,5 @@ services:
       - PASSWORD=changeme
     ports:
       - "8088:8080"
+    volumes:
+      - ./config:/home/coder/.config

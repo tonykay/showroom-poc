@@ -40,12 +40,12 @@ services:
       - "8002:8888"
 
 
-  jupyter:
-    image: docker.io/jupyter/scipy-notebook
-    container_name: jupyter
-    hostname: jupyter
-    ports:
-      - "8004:8888"
+  # jupyter:
+  #   image: docker.io/jupyter/scipy-notebook
+  #   container_name: jupyter
+  #   hostname: jupyter
+  #   ports:
+  #     - "8004:8888"
 
   codeserver:
     image: docker.io/codercom/code-server
